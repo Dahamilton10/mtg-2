@@ -2,7 +2,7 @@ import React from 'react';
 import CardItem from '../components/CardItem'
 import { Col, Container } from 'react-bootstrap';
 
-export default function CardDisplay(props) { 
+export default function CardDisplay(props) {
   return (
     <>
       <Col>
@@ -11,6 +11,7 @@ export default function CardDisplay(props) {
             <CardItem
               key={card.id}
               card={card}
+              cardOnClick={props.cardOnClick}
             />
           )}
         </Container>

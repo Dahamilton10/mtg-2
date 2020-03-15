@@ -89,7 +89,6 @@ function Home(props) {
   const addDeckItem = async (cardID) => {
     const response = await Axios.post(`/api/deckItem/${deckID}/${cardID}`);
     console.log(response.data[0]);
-    setCardList(response.data[0]);
   }
 
   // function to get all deckItems with a specified deckID
@@ -106,6 +105,13 @@ function Home(props) {
     setDeckList(response.data);
   }
 
+  // This function is what is called when a card is clicked, just a combo of adddeckitem and reloading the deck items
+  const cardOnClick = async (e) => {
+    console.log('cardOnClick');
+    await addDeckItem(e);
+    await getDeckItems();
+    console.log('Added cards to deck and reloaded deck items');
+  }
 
   // this function is duplicated in the Members page component
   // consider refactor 
@@ -248,7 +254,8 @@ function Home(props) {
         <Col md='8'>
           <CardDisplay
             cardList={cardList}
-            addDeckItem={addDeckItem}
+            deckID={deckID}
+            cardOnClick={cardOnClick}
           ></CardDisplay>
         </Col>
         <Col md='2'>

@@ -12,6 +12,7 @@ router.get('/cards/:name', (req, res) => {
   db.Card.findAll({
     where: {
       name: req.params.name,
+      SetCode: 'M20',
     },
   }).then((result) => {
     res.send([result]);
@@ -62,11 +63,11 @@ router.delete('/deck/:id', (req, res) => {
 });
 
 // Adds a card to a deck, or updates the quantity of a card in a deck
-router.put('/deckitem/:deckID/:cardID/:SetCode', (req, res) => {
+router.post('/deckitem/:deckID/:cardID/', (req, res) => {
   db.DeckItem.create({
     DeckId: req.params.deckID,
     CardId: req.params.cardID,
-    SetCode: req.params.SetCode,
+    SetCode: 'M20',
   }).then((result) => {
     res.send([result]);
   });
