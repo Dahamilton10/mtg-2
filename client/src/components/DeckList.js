@@ -2,7 +2,6 @@
 
 import React from 'react';
 import DeckListItem from './DeckListItem';
-import { Table } from 'react-bootstrap';
 
 export default function DeckList(props) {
   return (

@@ -74,11 +74,11 @@ router.post('/deckitem/:deckID/:cardID/', (req, res) => {
 });
 
 // Should remove a card from a deck Or just decrement the quantity
-router.delete('/deckitem/:deckID/:cardID', (req, res) => {
+router.delete('/deckitem/:DeckId/:id', (req, res) => {
   db.DeckItem.destroy({
     where: {
-      deck_ID: req.params.deckID,
-      card_ID: req.params.cardID,
+      DeckId: req.params.DeckId,
+      id: req.params.id,
     },
   }).then((result) => {
     res.send([result]);

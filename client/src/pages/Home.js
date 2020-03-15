@@ -99,10 +99,10 @@ function Home(props) {
   }
 
   // removes a card from a deck
-  const removeCard = async (cardID) => {
-    const response = await Axios.delete(`/api/deckItem/${deckID}/${cardID}`);
+  const removeCard = async (id) => {
+    const response = await Axios.delete(`/api/deckItem/${deckID}/${id}`);
     console.log(response.data);
-    setDeckList(response.data);
+    await getDeckItems();
   }
 
   // This function is what is called when a card is clicked, just a combo of adddeckitem and reloading the deck items
