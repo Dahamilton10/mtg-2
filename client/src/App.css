@@ -17,6 +17,7 @@ body {
 
 .deckListItem {
   height: 25px;
+  background-position: 50% 5%;
 }
 
 .card-body {
