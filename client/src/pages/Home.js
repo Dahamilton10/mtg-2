@@ -80,7 +80,7 @@ function Home(props) {
     // set the deck id
     setCurrentDeckName(e.name);
     setDeckID(e.id);
-    const response = await getDeckItems(e.id);
+    const response = await getDeckItemsById(e.id);
     console.log(response);
   }
 
@@ -99,7 +99,14 @@ function Home(props) {
   }
 
   // function to get all deckItems with a specified deckID
-  const getDeckItems = async (e) => {
+  const getDeckItems = async () => {
+    const response = await Axios.get(`/api/deckItem/${deckID}`);
+    console.log(response.data);
+    setDeckList(response.data[0]);
+  }
+
+  // function to get all deckItems with a specified deckID
+  const getDeckItemsById = async (e) => {
     const response = await Axios.get(`/api/deckItem/${e}`);
     console.log(response.data);
     setDeckList(response.data[0]);
