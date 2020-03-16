@@ -30,8 +30,8 @@ export default function Search(props) {
           onChange={props.getSetCards}
           value={props.searchSet}
         >
-          <option value="M20">Core Set 2020</option>
           <option value="">- Select Set-</option>
+          <option value="M20">Core Set 2020</option>
           <option value="LEA">Alpha (Limited Edition)</option>
           <option value="LEB">Beta (Limited Edition)</option>
           <option value="2ED">Unlimited Edition</option>

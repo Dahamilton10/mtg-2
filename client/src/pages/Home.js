@@ -80,8 +80,8 @@ function Home(props) {
     // set the deck id
     setCurrentDeckName(e.name);
     setDeckID(e.id);
-    await getDeckItems()
-
+    const response = await getDeckItems(e.id);
+    console.log(response);
   }
 
   // This function breaks the app and I dont know why :)
@@ -99,8 +99,8 @@ function Home(props) {
   }
 
   // function to get all deckItems with a specified deckID
-  const getDeckItems = async () => {
-    const response = await Axios.get(`/api/deckItem/${deckID}`);
+  const getDeckItems = async (e) => {
+    const response = await Axios.get(`/api/deckItem/${e}`);
     console.log(response.data);
     setDeckList(response.data[0]);
   }
