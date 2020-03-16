@@ -27,9 +27,10 @@ export default function Search(props) {
         <select
           className="form-control"
           id="set"
-          onChange={(event) => props.setSearchSet(event.target.value)}
+          onChange={props.getSetCards}
           value={props.searchSet}
         >
+          <option value="M20">Core Set 2020</option>
           <option value="">- Select Set-</option>
           <option value="LEA">Alpha (Limited Edition)</option>
           <option value="LEB">Beta (Limited Edition)</option>
@@ -237,7 +238,7 @@ export default function Search(props) {
           <option value="WAR">War of the Spark</option>
           <option value="MH1">Modern Horizons</option>
           <option value="SS2">Signature Spellbook: Gideon</option>
-          <option value="M20">Core Set 2020</option>
+          {/* magic core 2020 goes here */}
           <option value="C19">Commander 2019</option>
           <option value="ELD">Throne of Eldraine</option>
           <option value="GN2">Game Night 2019</option>

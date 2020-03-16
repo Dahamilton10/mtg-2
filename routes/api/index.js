@@ -19,6 +19,18 @@ router.get('/cards/:name', (req, res) => {
   });
 });
 
+// Queries db for cards of a certain set
+router.get('/sets/M20', (req, res) => {
+  console.log('Hit GET /sets/M20');
+  db.Card.findAll({
+    where: {
+      SetCode: 'M20',
+    },
+  }).then((result) => {
+    res.send([result]);
+  });
+});
+
 // Creates a deck with a user id and the name of the deck
 router.post('/deck/:userid/:name', (req, res) => {
   db.Deck.create({

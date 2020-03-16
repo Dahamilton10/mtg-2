@@ -49,6 +49,13 @@ function Home(props) {
     setCardList(response.data[0].reverse());
   }
 
+  // search by set for cards
+  const getSetCards = async () => {
+    let response = await Axios.get(`/api/sets/M20`);
+    console.log(response.data[0]);
+    setCardList(response.data[0]);
+  }
+
   // function to add a deck
   const addDeck = async () => {
     console.log({ user });
@@ -249,6 +256,7 @@ function Home(props) {
             setSearchColors={setSearchColors}
 
             getCards={getCards}
+            getSetCards={getSetCards}
           ></Search>
         </Col>
         <Col md='8'>
